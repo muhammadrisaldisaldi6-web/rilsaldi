@@ -1,0 +1,127 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: rgb(211, 234, 158);
+}
+
+.game-container {
+  width: 400px;
+  margin: 40px auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card.flipped {
+  background-color: #fff;
+}
+
+.card.matched {
+  background-color: #0f0;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card {
+  width: 100px;
+  height: 140px;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card .front, .card .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.card .front {
+  background: #333;
+}
+
+.card .back {
+  background-size: cover;
+  transform: rotateY(180deg);
+}
+
+.card.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+  transform: rotateY(0deg);
+}
+
+.resetBtn {
+  background-color: rgba(87, 232, 87, 0.712);
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Overlay style */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay-content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  animation: textGlow 1.2s ease-in-out infinite alternate;
+}
+
+.overlay-content button {
+  background: #ff9800;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.overlay-content button:hover {
+  transform: scale(1.05);
+  background: #ffa726;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800; }
+  to { text-shadow: 0 0 20px #ffa726, 0 0 40px #ffa726; }
+}
